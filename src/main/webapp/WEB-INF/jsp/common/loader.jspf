@@ -1,0 +1,6 @@
+<%-- Shared loading overlay markup, included at the bottom of each page's <body>. --%>
+<div id="loading-overlay" class="loading-overlay">
+    <div class="spinner"></div>
+    <div class="loading-text">Please wait...</div>
+</div>
+<script src="assets/app.js"></script>

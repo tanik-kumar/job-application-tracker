@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- App code: verbose DEBUG logging so you can see every CRUD action happen -->
+        <Logger name="com.example.jobtracker" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <!-- Struts2 action mapping / execution flow -->
+        <Logger name="com.opensymphony.xwork2" level="INFO" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="org.apache.struts2" level="INFO" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Root level="INFO">
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>

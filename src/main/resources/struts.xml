@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+
+    <package name="jobtracker" extends="struts-default" namespace="/">
+
+        <!-- Handles the bare "/" request, since the Struts filter intercepts it before
+             the container's welcome-file (index.jsp) can be served. -->
+        <action name="" class="com.example.jobtracker.action.JobApplicationAction" method="list">
+            <result name="list">/WEB-INF/jsp/list.jsp</result>
+        </action>
+
+        <action name="jobs" class="com.example.jobtracker.action.JobApplicationAction" method="list">
+            <result name="list">/WEB-INF/jsp/list.jsp</result>
+        </action>
+
+        <action name="jobForm" class="com.example.jobtracker.action.JobApplicationAction" method="input">
+            <result name="input">/WEB-INF/jsp/form.jsp</result>
+        </action>
+
+        <action name="saveJob" class="com.example.jobtracker.action.JobApplicationAction" method="save">
+            <result name="toList" type="redirectAction">
+                <param name="actionName">jobs</param>
+                <param name="msg">${msg}</param>
+            </result>
+        </action>
+
+        <action name="deleteJob" class="com.example.jobtracker.action.JobApplicationAction" method="delete">
+            <result name="toList" type="redirectAction">
+                <param name="actionName">jobs</param>
+                <param name="msg">${msg}</param>
+            </result>
+        </action>
+
+    </package>
+</struts>
